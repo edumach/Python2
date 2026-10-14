@@ -1,0 +1,13 @@
+Detekce a oprava chyb nebo zjišťování a oprava chyb 
+(anglicky Error detection and correction, EDAC), 
+v širším rámci řízení zabezpečení (anglicky Error control) 
+v teorii informace a teorii kódování s aplikacemi 
+v telekomunikacích a matematické informatice jsou techniky, 
+které umožňují spolehlivý přenos digitálních dat pomocí 
+nespolehlivých komunikačních kanálů. Komunikační kanály 
+jsou ovlivňovány šumem a rušením, a proto může docházet 
+k narušování přenosu dat mezi odesilatelem a příjemcem. 
+Zatímco techniky detekce chyb umožňují odhalovat chyby 
+při přenosu (oprava se zajistí opakováním přenosu), 
+techniky opravy chyb umožňují zrekonstruovat 
+původní data narušená přenosem.

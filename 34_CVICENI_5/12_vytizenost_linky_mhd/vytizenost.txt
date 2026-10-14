@@ -1,0 +1,9 @@
+50
+20 0 Na stráni
+35 0 Městský park
+10 20 Jiráskova
+40 20 Nemocnice
+10 40 U lípy
+5 10 Městský úřad
+35 10 Poděbradská
+0 55 Nové dvory

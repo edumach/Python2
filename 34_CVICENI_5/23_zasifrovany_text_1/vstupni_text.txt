@@ -1,0 +1,10 @@
+CIA dokázala sledovat polohu osoby. Díky Wi-Fi sítím
+Jednoduchá a přitom nenápadná technika umožnila 
+pracovníkům CIA sledování cílových osob.
+Organizace WikiLeaks zveřejnila další část 
+materiálů informujících o hackerských nástrojích 
+využívaných na prosazování práva. Tentokrát jde o malware, 
+který sleduje zeměpisnou polohu cílové osoby 
+prostřednictvím Wi-Fi modulu.
+
+Zdroj: https://www.zive.cz

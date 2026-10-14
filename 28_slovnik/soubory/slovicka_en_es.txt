@@ -1,0 +1,17 @@
+table;mesa
+chair;silla
+lamp;lámpara
+window;ventana
+air condition;aire acondicionado
+door;puerta
+desk;escritorio
+carpet;alfombra
+sofa;sofá
+armchair;sillón
+bookcase;librero
+shelf;estante
+ceiling;techo
+picture;cuadro
+clock;reloj
+wardrobe;armario
+hanger;percha

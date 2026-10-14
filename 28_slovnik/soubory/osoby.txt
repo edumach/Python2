@@ -1,0 +1,20 @@
+Roman;196;2001;Zlín
+Eva;184;2000;Pardubice
+Jana;180;2001;Kolín
+Adam;187;2002;Brno
+Petr;175;2000;Olomouc
+Lucie;168;2001;Jihlava
+Martin;182;2002;Liberec
+Tereza;171;2000;Kladno
+Jakub;190;2001;Most
+Veronika;165;2002;Tábor
+David;178;2000;Hradec Králové
+Kateřina;172;2001;Plzeň
+Tomáš;185;2002;České Budějovice
+Barbora;169;2000;Mladá Boleslav
+Michal;181;2001;Přerov
+Anna;166;2002;Kolín
+Ondřej;188;2000;Jihlava
+Nikola;174;2001;Most
+Filip;179;2002;Teplice
+Klára;170;2000;Děčín

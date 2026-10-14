@@ -1,0 +1,5 @@
+v připraveném textovém souboru je článek napsán pouze malými písmeny. napište korektorský program,
+který vytvoří nový soubor. v něm budou alespoň začáteční písmena
+vět změněny na velká písmena. věty v článku jsou zakončeny tečkou,
+vykřičníkem nebo otazníkem (a za nimi následuje
+jedna mezera). v jednom řádku může být i více vět a nemusí končit přesně na konci řádku, ale mohou přesahovat i další řádek. podařilo se vám to? super! gratulujeme!

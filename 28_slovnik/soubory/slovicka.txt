@@ -1,0 +1,17 @@
+table;stůl
+chair;stolička
+lamp;lampa
+window;okno
+air condition;klimatizace
+door;dveře
+desk;lavice
+carpet;koberec
+sofa;pohovka
+armchair;křeslo
+bookcase;knihovna
+shelf;police
+ceiling;strop
+picture;obraz
+clock;hodiny
+wardrobe;šatník
+hanger;věšák

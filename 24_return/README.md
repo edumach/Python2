@@ -1,0 +1,444 @@
+
+# Lekce 24: Funkce s návratovou hodnotou
+
+---
+
+Vytvořit funkci, volat funkci a používat parametry už umíme. Funkce, které jsme používali, byly **podprogramy**, které provedly nějakou činnost, ale zatím nevrátily na výstupu funkce žádný výsledek. Vrácením výsledku nemyslíme situaci, kdy vytvořený podprogram například pomocí příkazu `print()` vypsal vypočítanou informaci. S používáním funkcí s výsledkem jsme se však již setkali. Například funkce: `randrange()`, `randint()`, `ord()`, `str()`, `int()`, `len()`, `input()`, `choice()`, `type()` a další.
+
+---
+
+❓ Jak tyto funkce v programu používáme? V čem se jejich použití liší od funkcí, které jsme vytvořili sami?
+
+---
+
+Když jsme sami vytvořili funkci (bez návratové hodnoty), například funkci dom(), kterou jsme použili k nakreslení domu na plátně, volali jsme ji ve tvaru dom(parametry). Funkce nevrátila žádný výsledek, a proto jsme nemuseli nic zpracovávat. Například funkce `randrange()` je však funkcí s návratovou hodnotou a po vyvolání funkce vrátí náhodné číslo, které je třeba nějak zpracovat. Výsledek si tedy uložíme do nějaké proměnné, nebo jej předáme jako vstup pro jinou funkci ve formě parametru. Funkci `randrange(číslo)` jsme používali takto:
+
+1. výsledek jsme uložili do proměnné: `a = randrange(10)`,
+2. výsledek jsme použili jako vstup pro další funkci nebo výpočet: `print(randrange(10))`, `2*randrange(10)`, `canvas.create_text(randrange(10), y, text='...')`
+
+K určení výstupu se ve funkci používá příkaz `return`. Příkaz `return` ukončí výpočet a uvedená hodnota se stane výsledkem funkce.
+
+Vytvořme funkci, která nám vráti náhodné písjmeno malé abecedy s názvem `randchar()`.
+
+```py
+# 24_1.py
+
+from random import *
+
+def randchar():
+    cislo = randint(97, 122)
+    znak = chr(cislo)
+    return znak
+
+print(randchar())
+```
+
+Volání funkce použijeme jako vstup do funkce  `print()`, která vypíše výsledek. Funkci můžeme stále upravovat, příkaz `return`  může obsahovat přímo celý výpočet a není třeba používat proměnné `cislo` a `znak`. Funkci použijeme k vytvoření 10znakového řetězce náhodných písmen malé abecedy.
+
+```py
+# 24_2.py
+
+from random import *
+
+def randchar():
+    return chr(randint(97, 122))
+
+s = ''
+for i in range(10):
+    s = s + randchar()
+
+print(s)
+```
+
+Můžeme vytvořit  funkci `nah_retezec(delka)`, která nám vrátí řetězec z náhodných písmen malé abecedy. Délku řetězce určíme **vstupním parametrem**.
+
+```py
+# 24_3.py
+
+from random import *
+
+def randchar():
+    return chr(randint(97, 122))
+
+def nah_retezec(delka):
+    s = ''
+    for i in range(delka):
+        s = s + randchar()
+    return s    
+
+print(nah_retezec(5))
+heslo = nah_retezec(8)
+print(heslo)
+```
+
+---
+
+❓ **Otázka**: Jak by program fungoval, kdybychom  ve funkci `nah_retezec()` umístili příkaz `return` (1) před cyklus `for` nebo kdyby (2) byl součástí cyklu `for`?
+
+```py
+# 24_4_1.py
+
+def nah_retezec(delka):
+    s = ''
+    return s
+    for i in range(delka):
+        s = s + randchar()
+```
+
+```py
+# 24_4_2.py
+
+def nah_retezec(delka):
+    s = ''
+    for i in range(delka):
+        s = s + randchar()
+        return s
+```
+
+---
+
+Nesmíme zapomínat, že příkaz `return` ukončí vykonávání funkce a vrátí výsledek. To znamená, že nemá smysl, aby za příkazem `return` byly další příkazy, neboť ty se již neprovedou. Další příkazy ve funkci mají smysl, pouze pokud se příkaz `return` neprovede vždy, ale jen při splnění nějaké podmínky. Vytvoříme vlastní funkci pro výpočet absolutní hodnoty ze zadaného čísla:
+
+```py
+# 24_5.py
+
+def abs_hodnota(cislo):
+    if cislo > 0:
+        return cislo
+    else:
+        return -1 * cislo
+
+print(abs_hodnota(-10))
+print(abs_hodnota(10))
+```
+
+V skutečnosti můžeme funkci `abs_hodnota()` zapsat i jednodušším způsobem:
+
+```py
+# 24_6.py
+
+def abs_hodnota(cislo):
+    if cislo < 0:
+        cislo = -1 * cislo
+    return cislo
+```
+
+---
+
+❓ Co se stane, když vstupem funkce `abs_hodnota()` nebude číslo?
+
+---
+
+Takto můžeme zkusit vyřešit problém se zadáním jiného vstupu než vstupu typu `int`:
+
+```py
+# 24_7.py
+
+def abs_hodnota(cislo):
+    if type(cislo) == int:
+        if cislo < 0:
+            cislo = -1 * cislo
+    else
+        print("Hodnotu", cislo, "nelze převést")
+    return cislo
+```
+
+---
+
+
+❓ Je předchozí řešení funkce `abs_hodnota()` správně? Může nám z nějakého záporného čísla vrátit záporné číslo?
+
+❓   Co nám vrátí následující volání?
+1. `abs_hodnota(-10/2)`
+2. `abs_hodnota('-5')`
+3. `abs_hodnota(-10//2)`  `//` je celočíselné dělení
+
+❓  Jak můžeme funkci `abs_hodnota()` vylepšit?
+
+---
+
+Vytvoříme funkci `xnay(x, y)`, která číslo `x` umocní na `y`. Dejme tomu, že neznáme operaci `**`.
+
+```py
+# 24_8.py
+
+def xnay(x,y):
+    vysledek = 1
+    for i in range(y):
+        vysledek = vysledek * x
+    return vysledek
+
+print(xnay(2, 4))
+print(xnay(2, 1))
+print(xnay(2, 0))
+```
+
+---
+
+❓ Je tato funkce `xnay()` vytvořena dobře? Pro které vstupy spočítá správné výsledky, pro které nesprávné, za jakých okolností nahlásí chybu?
+
+---
+
+Někdy potřebujeme, aby funkce vrátila více než jeden výsledek. Tehdy se použije na výstupu n-tice. My už víme, že k zapsání n-tice nejsou vždy potřeba závorky, proto nám bude fungovat takový zápis: `return hodnota1, hodnota2, hodnota3, ...`
+
+Vytvoříme funkci `rozdel_jmeno(vstup)`, která rozdělí vstup - jméno zadané ve tvaru jméno mezera příjmení na n-tici (jméno, příjmení):
+
+```py
+# 24_9.py
+
+def rozdel_jmeno(vstup):
+    pozice = vstup.find(' ')
+    jmeno = vstup[:pozice]
+    prijmeni = vstup[pozice+1:]
+    return jmeno, prijmeni
+
+jmeno, prijmeni = rozdel_jmeno('Jana Šikovná')
+print(jmeno)
+print(prijmeni)
+```
+
+nebo celou n-tici přiřadíme jen do jedné proměnné:
+
+```py
+info = rozdel_jmeno('Jana Šikovná')
+print(info)
+```
+
+Vypíše se `('Jana', 'Šikovná')`.
+
+---
+
+Doposud jsme pro výpočty používali běžně operace `+`, `-`, `*`, `/`. Někdy nám budou užitečné i další operace: `//`, `%` a `**`. Operace `//` je celočíselné dělení (v některých jazycích označována také jako `div`). Například `7 // 3 = 2`. Operace `%` vypočítá zbytek po dělení, například `7 % 3 = 1` (zbytkem po dělení sedm třemi je jeden). Operace `**` se používá k umocnění. Například `2 ** 3 = 8` (dva na třetí).
+
+---
+
+## 💾 Cvičení
+
+**[1]**  Upravte funkci `rozdel_jmeno()` tak, aby fungovala i v případě, že celé jméno obsahuje více křestních jmen oddělených mezerou a pak příjmení. Například rozdělí jméno `'Adam Ján Moudrý'`.
+
+**[2]**  Vytvořte funkci, která ze zadaného řetězce odstraní samohlásky.
+
+**[3]**  Vytvořte funkci, která na zadaném místě nakreslí domek se střechou a na výstupu vrátí n-tici, která bude obsahovat identifikátory nakreslených útvarů.
+
+**[4]**  Vytvořte funkci, které na vstupu zadáme dva řetězce a výstupem bude ten řetězec, který má větší délku. Při stejné délce vypíše vhodné hlášení.
+
+**[5]** Vytvořte funkci `je_email()`, která ověří, zda řetězec zadaný ve vstupním parametru má tvar emailové adresy (tedy `jmeno@server.tld`).
+
+**[6]**  Vytvořte funkci `delitele()`, která vrátí n-tici se všemi děliteli čísla zadaného v parametru.
+
+---
+
+Pomocí operace `//` a `%` můžeme získávat číslice z čísla, aniž bychom číslo přetypovali na `string`.
+
+```py
+# 24_10.py
+
+cislo = int(input('Zadej číslo:'))
+
+def posledni_cifra(cislo):
+    cifra = cislo % 10
+    return cifra
+
+print(posledni_cifra(cislo))
+```
+
+Funkci upravíme. Na výstupu nám vrátí kromě poslední číslice i zbývající cifernou část čísla, ze které ještě chceme postupně oddělit poslední číslice.
+
+```py
+# 24_11.py
+
+cislo = int(input('Zadej číslo:'))
+
+def posledni_cifra(cislo):
+    cifra = cislo % 10
+    cislo = cislo // 10
+    return cifra, cislo
+
+cifra, cislo = posledni_cifra(cislo)
+print(cifra)
+print(cislo)
+```
+
+Nyní stačí v cyklu vícekrát oddělit a vypsat poslední číslici čísla (vždy nového) a můžeme vypsat jednotlivé číslice. Problémem však je, jak určíme počet opakování cyklu. Například, pokud bychom vytvořili `for` cyklus s deseti opakováními, program bude dobře fungovat pro 10místná čísla, ale ne pro jakékoli. Ano, mohli bychom číslo přetypovat na `string` a funkcí `len()` zjistit počet znaků, ale právě této konverzi se chceme vyhnout. Uměli bychom to vyřešit i použitím časovače (timeru), čili cyklu, který nepotřebuje předem znát počet opakování. Jenže časovač zpomalí výpočet. Vhodnější je použít `while` cyklus, který již známe z kapitoly o textových souborech.
+
+A takto rozložíme číslo na jednotlivé číslice pomocí `while` cyklu:
+
+```py
+# 24_12.py
+
+cislo = int(input('Zadej celé kladné čislo: '))
+
+def posledni_cifra(cislo):
+    cifra = cislo % 10
+    cislo = cislo // 10
+    return cifra, cislo
+
+while cislo > 0:
+    cifra, cislo = posledni_cifra(cislo)
+    print(cifra)
+```
+
+```
+Zadej celé kladné čislo: 1234
+4
+3
+2
+1
+>>>
+```
+
+---
+
+Žáci vytvořili funkci `jepalindrom(vstup)`, která zjistí, zda zadaný řetězec je palindromem. Ve funkci se **nemohlo použít otočení řetězce**. Výstupem bude hodnota `True` nebo `False`. Palindrom je slovo, věta, číslo (pro nás řetězec), který i po otočení zprava doleva je stejný. Například známé palindromy jsou: `anna`, `kobylamamalybok`, `jelenovipivonelej`, `tahat`. Další palindromy i v jiných jazycích můžete najít na internetu. Řešení žáků naleznete v následujících otázkách.
+
+---
+
+
+❓  Jak byste tuto funkci vytvořili vy?
+
+❓  Které z následujících devíti funkcí jsou dobrým řešením? U kterých vstupů funkce nebudou dávat správný výsledek? U kterých vstupů funkce ohlásí Python chybu?
+
+```py
+# 24_13A.py
+
+def jepalindrom(vstup):
+    z = 0
+    k = len(vstup)-1
+    while z < k:
+        if vstup[z] == vstup[k]:
+            vysledek = True
+        else:
+            vysledek = False
+        z += 1
+        k -= 1
+    return vysledek
+```
+
+```py
+# 24_13B.py
+
+def jepalindrom(vstup):
+    z = 0
+    k = len(vstup)-1
+    while z <= k:
+        if vstup[z] == vstup[k]:
+            vysledek = True
+        else:
+            vysledek = False
+        z += 1
+        k -= 1
+    return vysledek
+```
+
+```py
+# 24_13C.py
+
+def jepalindrom(vstup):
+    z = 0
+    k = len(vstup)-1
+    vysledek = True
+    while z < k and vysledek:
+        if vstup[z] != vstup[k]:
+            vysledek = False
+        z += 1
+        k -= 1
+    return vysledek
+```
+
+```py
+# 24_13D.py
+
+def jepalindrom(vstup):
+    z = 0
+    k = len(vstup)-1
+    vysledek = False
+    while z < k:
+        if vstup[z] == vstup[k]:
+            vysledek = True
+        z += 1
+        k -= 1
+    return vysledek
+```
+
+```py
+# 24_13E.py
+
+def jepalindrom(vstup):
+    z = 0
+    k = len(vstup)-1
+    vysledek = False
+    while z <= k:
+        if vstup[z] == vstup[k]:
+            vysledek = True
+        z += 1
+        k -= 1
+    return vysledek
+```
+
+```py
+# 24_13F.py
+
+def jepalindrom(vstup):
+    vysledek = True
+    for i in range(len(vstup)//2):
+        if vstup[i] != vstup[-i-1]:
+            vysledek = False
+    return vysledek
+```
+
+```py
+# 24_13G.py
+
+def jepalindrom(vstup):
+    vysledek = True
+    for i in range(len(vstup)):
+        if vstup[i] != vstup[-i-1]:
+            vysledek = False
+    return vysledek
+```
+
+```py
+# 24_13H.py
+
+def jepalindrom(vstup):
+    for i in range(len(vstup)):
+    if vstup[i] == vstup[-i-1]:
+        vysledek = True
+    else:
+        vysledek = False
+    return vysledek
+```
+
+```py
+# 24_13I.py
+
+def jepalindrom(vstup):
+    vysledek = False
+    for i in range(len(vstup)):
+        if vstup[i] == vstup[-i-1]:
+            vysledek = True
+    return vysledek
+```
+
+---
+
+Pokud jste odhadli, která řešení jsou dobrá; dobrá, ale málo efektivní; špatná, zkuste je otestovat například na těchto vstupech:
+
+```py
+print(jepalindrom('jelenovipivonelej'))
+print(jepalindrom('abccxa'))
+print(jepalindrom('a'))
+print(jepalindrom(''))
+```
+
+---
+
+## 💾 Cvičení
+
+**[7]**  Vytvořte program, který přečte textový soubor `vstup.txt` a vytvoří textový soubor `vystup.txt`, ve kterém budou jen ty řádky ze vstupního souboru, které jsou palindromy. Pro testování palindromu vytvořte vlastní funkci `jepalindrom`, která bude podle vás nejlepším řešením. O kvalitě řešení navzájem diskutujte.
+
+
+**[8]**  Vytvořte funkci `ciferny_soucet(cislo)`, která vypočítá ciferný součet zadaného čísla na vstupu.
+
+
+**[9]**  Vytvořte funkci `rgb`, která ze vstupních hodnot v desítkové soustavě namíchá hodnotu barvy v hexadecimálním zápisu a na výstupu vrátí řetězec s barvou.

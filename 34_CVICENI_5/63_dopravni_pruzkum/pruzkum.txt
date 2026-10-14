@@ -1,0 +1,11 @@
+10;0;Na stráni
+5;0;Městský park
+50;1;Jiráskova
+2;0;Nemocnice
+10;3;U lípy
+1;1;Městský úřad
+15;10;Městský úřad
+1;2;Poděbradská
+21;0;Nové dvory
+0;7;U školy
+0;91;Autobusové nádraží

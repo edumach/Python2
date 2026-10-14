@@ -1,0 +1,15 @@
+Autorem Pythonu je programátor Guido van Rossum,
+   který se narodil a vyrostl v Nizozemsku. 
+   
+Python vznikl v roce 1991 a své jméno dostal    
+podle Monty Pythonova létajícího cirkusu 
+  (autor je jeho velkým fanouškem).
+
+V současné době patří Python mezi    
+    nejpopulárnější programovací jazyky na světě. 
+
+
+a jeho obliba stále roste. Je to moderní, 
+vysokoúrovňový jazyk, který podporuje 
+
+    více programovacích paradigmat a je open source.

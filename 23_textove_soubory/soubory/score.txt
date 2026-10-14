@@ -1,0 +1,8 @@
+High score
+==========
+Alena 120
+Bob 115
+Jan 80
+Dana 75
+Eda 70
+

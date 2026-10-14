@@ -1,0 +1,15 @@
+Prague;Brussels
+London Stansted;Berlin
+Zurich;Prague
+Vienna;London Heathrow
+Budapest;Berlin
+Vienna;Paris Orly
+Frankfurt;Prague
+London Heathrow;Frankfurt
+Barcelona;Vienna
+Paris Orly;Budapest
+London Heathrow;Budapest
+Prague;Brussels;
+Berlin;London Heathrow
+London Heathrow;Oslo Gardermoen
+Berlin;Stockholm Arlanda
