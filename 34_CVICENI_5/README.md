@@ -80,7 +80,7 @@ Pokud se v úloze pracuje s textovým souborem, jeho ukázku najdete přímo v z
 | 40.  | Analýza údajů  |  `"", [], txt` |
 | 45.  | Učení slovíček |   `"", [], txt` |
 | 46.  | Oběšenec | `"", [], txt` |
-| 48.  | Násobilka  `"", (), [], txt, fx()` |
+| 48.  | Násobilka  | `"", (), [], txt, fx()` |
 | 51.  | Komprese hlášení 1  |  `"", []` |
 | 52.  | Komprese hlášení 2  |  `"", []` |
 | 63.  | Dopravní průzkum |  `(), [], txt` |
